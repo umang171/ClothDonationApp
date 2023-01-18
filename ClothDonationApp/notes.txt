@@ -1,0 +1,36 @@
+file storage
+
+internally :
+
+for internal we don't need any permission
+
+
+externally :
+
+in exteranal we have to give permissiom like
+
+
+READ_EXRERNAL_STORAGE
+WRITE_EXRERNAL_STORAGE
+
+
+
+in design:
+
+	change layout from constraint to linearlayout
+	and orientation vertical
+	two edit text
+	two buttons for internal and external filehoe
+
+	change textPersonName to multilinetext and text
+	set the lines to 5 
+
+	for displaying the data 
+	gravity and start from top
+	remove the text 
+	change the button name
+	
+
+	create an file data member of type File as internalFile
+	
+	file = new File(getFil)

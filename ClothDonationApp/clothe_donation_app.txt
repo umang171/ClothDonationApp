@@ -1,0 +1,18 @@
+creating a login 
+creating a registration
+doner list should be shown 
+user can update his/her profile
+creating a charity
+
+
+user :
+	can create it's profile or 
+	login , logout
+	donate the clothes to a charity
+	update profile
+	
+Admin
+	login
+	can see doner list
+	after collecting the clothes the status can be updated
+	we can track using location

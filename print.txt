@@ -1,0 +1,829 @@
+Name:Gohel Umang Tejaskumar
+Roll no:12
+Class:MCA-3
+Subject:Mobile Application Development
+=====================================================================================
+Cloth Donation Application
+=====================================================================================
+activity_splash_screen.xml
+=====================================================================================
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    tools:context=".SplashScreen">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/clothdonation" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Donate Cloths and Make pepole Happy"
+        android:textAlignment="center"
+        android:textColor="#FFEB3B"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.093" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+=====================================================================================
+SplashScreen.java
+=====================================================================================
+package com.example.clothdonationapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+
+public class SplashScreen extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash_screen);
+        Intent iHome=new Intent(SplashScreen.this,MainActivity.class);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(iHome);
+                finish();
+            }
+        },3000);
+    }
+}
+=====================================================================================
+activity_main.xml
+=====================================================================================
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/clothdonation" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Welcome"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sign up to continue"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="220dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:minHeight="48dp"
+        android:password="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <EditText
+        android:id="@+id/repassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="retype-password"
+        android:minHeight="48dp"
+        android:password="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="378dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="70dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="116dp"
+                android:layout_height="wrap_content"
+                android:text="Donor" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Receiver" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="484dp" />
+
+    <Button
+        android:id="@+id/btnsignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Already have an account Log in"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="484dp" />
+
+
+</LinearLayout>
+=====================================================================================
+MainActivity.java
+=====================================================================================
+package com.example.clothdonationapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText username,password,repassword;
+    Button signup,signin;
+    RadioButton radioButton1,radioButton2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
+        repassword = (EditText) findViewById(R.id.repassword);
+        signup = (Button) findViewById(R.id.btnsignup);
+        signin = (Button) findViewById(R.id.btnsignin);
+        radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
+        radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
+        DbHelper MyDb = new DbHelper(this);
+
+
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uname = username.getText().toString();
+                String pass = password.getText().toString();
+                String repass = repassword.getText().toString();
+                Boolean isDonor = radioButton1.isChecked();
+                Boolean isAdmin = radioButton2.isChecked();
+                String type = (isAdmin) ? "Admin":"Donor";
+
+                if (uname.equals("") || pass.equals("") || repass.equals("")) {
+                    Toast.makeText(MainActivity.this, "Please enter all fields", Toast.LENGTH_LONG).show();
+                } else {
+                    if (pass.equals(repass)) {
+                        Boolean userExist = MyDb.checkUsername(uname);
+                        if(!userExist){
+                            Boolean insert = MyDb.insertData(uname,pass,type);
+                            if(insert){
+                                Toast.makeText(MainActivity.this, "Registered SuccessFUlly", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(MainActivity.this,LoginAcitvity.class);
+                                startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(MainActivity.this, "Registeration Failed", Toast.LENGTH_LONG).show();
+
+                            }
+                        }else{
+                            Toast.makeText(MainActivity.this, "User ALready Exist Please signin", Toast.LENGTH_LONG).show();
+
+                        }
+                    }else{
+                        Toast.makeText(MainActivity.this, "Passworeds not matching", Toast.LENGTH_LONG).show();
+
+                    }
+                }
+            }
+        });
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,LoginAcitvity.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
+=====================================================================================
+DbHelper.java
+=====================================================================================
+package com.example.clothdonationapp;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+
+public class DbHelper extends SQLiteOpenHelper {
+
+    public  static  final String DBNAME = "cloth_donation_app.db";
+    public  static final String FNAME="fname";
+    public  static final String LNAME="lname";
+    public  static final String EMAIL="email";
+    public  static final String PHONE="phone";
+    public  static final String ADDRESS="address";
+    public  static final String GENDER="gender";
+    public  static final String CLOTHTYPE="cloth_type";
+    public  static final String CLOTHSIZE="cloth_size";
+    public DbHelper(Context context){
+        super(context,DBNAME,null,1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase MyDb) {
+        MyDb.execSQL("create table if not exists user(username TEXT primary key ,password TEXT , type TEXT)");
+        MyDb.execSQL("create table if not exists donor(" +
+                FNAME+" TEXT," +
+                LNAME+" TEXT," +
+                EMAIL+" TEXT," +
+                PHONE+" TEXT ,"+
+                ADDRESS+" TEXT," +
+                GENDER+" TEXT," +
+                CLOTHTYPE+" TEXT," +
+                CLOTHSIZE+" TEXT)");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase MyDb, int i, int i1) {
+        MyDb.execSQL("Drop table if exists user");
+        MyDb.execSQL("Drop table if exists user");
+
+    }
+
+    public Boolean insertData(String username,String password,String type){
+        SQLiteDatabase MyDb = this.getWritableDatabase();
+        ContentValues  contentValues = new ContentValues();
+        contentValues.put("username",username);
+        contentValues.put("password",password);
+        contentValues.put("type",type);
+        long result  = MyDb.insert("user",null,contentValues);
+
+        if(result == -1){
+            return  false;
+        }
+        else{
+            return  true;
+        }
+    }
+    public Boolean insertDonorData(String sfname,String slname,String semail,String sphone,String saddress,String sgender,String sclothType,String sclothSize)
+    {
+        SQLiteDatabase Db=this.getWritableDatabase();
+        DonorInfo donorInfo=new DonorInfo();
+        ContentValues values=new ContentValues();
+        values.put(FNAME,sfname);
+        values.put(LNAME,slname);
+        values.put(EMAIL,semail);
+        values.put(PHONE,sphone);
+        values.put(ADDRESS,saddress);
+        values.put(GENDER,sgender);
+        values.put(CLOTHTYPE,sclothType);
+        values.put(CLOTHSIZE,sclothSize);
+        long result=Db.insert("donor",null,values);
+        if(result == -1){
+            return  false;
+        }
+        else{
+            return  true;
+        }
+    }
+    public ArrayList<DonorInfo> fetchContact(){
+        SQLiteDatabase database=this.getReadableDatabase();
+        Cursor cursor=database.rawQuery("SELECT * FROM donor",null);
+        ArrayList<DonorInfo> arrDonors=new ArrayList<>();
+        while (cursor.moveToNext()){
+            DonorInfo donr=new DonorInfo();
+            donr.fname=cursor.getString(0);
+            donr.lname=cursor.getString(1);
+            donr.email=cursor.getString(2);
+            donr.phone=cursor.getString(3);
+            donr.address=cursor.getString(4);
+            donr.gender=cursor.getString(5);
+            donr.clothType=cursor.getString(6);
+            donr.clothSize=cursor.getString(7);
+            arrDonors.add(donr);
+        }
+        return arrDonors;
+    }
+
+    public Boolean checkUsername(String username){
+        SQLiteDatabase MyDb = this.getWritableDatabase();
+        Cursor cursor =     MyDb.rawQuery("select * from user where username=?",new String[]{username});
+        if(cursor.getCount()>0){
+            return  true;
+        }
+        else{
+            return  false;
+        }
+    }
+
+    public Boolean checkUsernameAndPassword(String username,String password){
+        SQLiteDatabase MyDb = this.getWritableDatabase();
+        Cursor cursor =     MyDb.rawQuery("select * from user where username=? and password=?",new String[]{username,password});
+        if(cursor.getCount()>0){
+            return  true;
+        }
+        else{
+            return  false;
+        }
+    }
+    public  String getTypeOfUser(String username,String password){
+        SQLiteDatabase MyDb = this.getWritableDatabase();
+        Cursor cursor =     MyDb.rawQuery("select * from user where username=? and password=?",new String[]{username,password});
+        cursor.moveToNext();
+        String type_of_user =  "";
+        type_of_user = cursor.getString(2);
+        return type_of_user;
+    }
+//    public  String getTypeOfUser(String username,String password){
+//        SQLiteDatabase MyDb = this.getWritableDatabase();
+//        Cursor cursor =     MyDb.rawQuery("select * from user where username=? and password=?",new String[]{username,password});
+//        String type_of_user = cursor.getString(2);
+//
+//        return type_of_user;
+//    }
+}
+
+=====================================================================================
+activity_login_activity.xml
+=====================================================================================
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".LoginAcitvity">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/clothdonation" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sign in to continue"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/username1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="220dp" />
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:minHeight="48dp"
+        android:password="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <Button
+        android:id="@+id/btnsignin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="484dp" />
+
+
+</LinearLayout>
+=====================================================================================
+LoginAcitvity.java
+=====================================================================================
+package com.example.clothdonationapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class LoginAcitvity extends AppCompatActivity {
+
+    EditText username1,password1;
+    Button btnsignin1;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login_acitvity);
+
+        username1 = (EditText) findViewById(R.id.username1);
+        password1 = (EditText) findViewById(R.id.password1);
+        btnsignin1 = (Button) findViewById(R.id.btnsignin1);
+        DbHelper MyDb = new DbHelper(this);
+
+        btnsignin1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uname = username1.getText().toString();
+                String pass = password1.getText().toString();
+
+                if (uname.equals("") || pass.equals("") ) {
+                    Toast.makeText(LoginAcitvity.this, "Please enter all fields", Toast.LENGTH_LONG).show();
+                } else {
+
+                    String type = MyDb.getTypeOfUser(uname,pass);
+                    Boolean isValidCrendential = MyDb.checkUsernameAndPassword(uname,pass);
+
+                    if(isValidCrendential){
+                        if(type.equals("Admin")){
+                            Toast.makeText(LoginAcitvity.this, "Loggedin SuccessFUlly", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(LoginAcitvity.this,HomeActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(LoginAcitvity.this, "Loggedin SuccessFUlly", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(LoginAcitvity.this,DonorActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+                    }
+                    else{
+                        Toast.makeText(LoginAcitvity.this, "Invalid credentials", Toast.LENGTH_LONG).show();
+
+                    }
+
+                }
+            }
+        });
+    }
+}
+
+=====================================================================================
+activity_home.xml
+=====================================================================================
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/clothdonation" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Available cloths"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/donorsListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+=====================================================================================
+HomeActivity.java
+=====================================================================================
+package com.example.clothdonationapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+public class HomeActivity extends AppCompatActivity {
+
+    DbHelper MyDb=new DbHelper(this);
+    ListView donorListView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        donorListView=(ListView) findViewById(R.id.donorsListView);
+        ArrayList<DonorInfo> arrayList= MyDb.fetchContact();
+
+//        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList);
+        ArrayList<String> arr=new ArrayList<String>();
+        for (DonorInfo donr :
+                arrayList) {
+
+            String temp="\nCloth Type=" + donr.clothType +
+                    "\nCloth Size=" + donr.clothSize+
+                    "\nGender=" + donr.gender  +
+                    "\nDonor Name=" + donr.fname  +
+                    "\nDonor phone number=" + donr.phone;
+            arr.add(temp);
+            Log.d("Donor_info",temp);
+        }
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr);
+        donorListView.setAdapter(arrayAdapter);
+
+    }
+}
+=====================================================================================
+activity_donor.xml
+=====================================================================================
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DonorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/clothdonation" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Donate your cloths here"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/donorFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/donorLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/donorEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/donorPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/donorAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPostalAddress"
+            android:minHeight="48dp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:textAlignment="center">
+
+            <RadioButton
+                android:id="@+id/gender1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/gender2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/clothType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Cloth Type"
+            android:inputType="textPostalAddress"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/clothSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Cloth Size"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/btnDonate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Donate" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+=====================================================================================
+DonorActivity.java
+=====================================================================================
+package com.example.clothdonationapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+public class DonorActivity extends AppCompatActivity {
+
+    EditText fName,lName,edtemail,phone_no,address,clothType,clothSize;
+    RadioButton male,female;
+    Button btnDonate;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_donor);
+        fName=(EditText) findViewById(R.id.donorFirstName);
+        lName=(EditText) findViewById(R.id.donorLastName);
+        edtemail=(EditText) findViewById(R.id.donorEmail);
+        phone_no=(EditText) findViewById(R.id.donorPhone);
+        address=(EditText) findViewById(R.id.donorAddress);
+        clothSize=(EditText) findViewById(R.id.clothSize);
+        clothType=(EditText) findViewById(R.id.clothType);
+        RadioButton male=(RadioButton) findViewById(R.id.gender1);
+        RadioButton female=(RadioButton) findViewById(R.id.gender2);
+        btnDonate=(Button) findViewById(R.id.btnDonate);
+//        DBHelper2 MyDb = new DBHelper2(this);
+        DbHelper MyDb=new DbHelper(this);
+
+        btnDonate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String fname=fName.getText().toString();
+                String lname=lName.getText().toString();
+                String email=edtemail.getText().toString();
+                String phone=phone_no.getText().toString();
+                String addr=address.getText().toString();
+                String clothSiz=clothSize.getText().toString();
+                String clothTyp=clothType.getText().toString();
+                Boolean isMale=male.isChecked();
+                Boolean isFemale=female.isChecked();
+                String gender = (isMale) ? "Male":"Female";
+                Log.d("Donor_data",fname);
+                Log.d("Donor_data",lname);
+                Log.d("Donor_data",email);
+                Log.d("Donor_data",phone);
+                Log.d("Donor_data",addr);
+                Log.d("Donor_data",clothSiz);
+                Log.d("Donor_data",clothTyp);
+                Log.d("Donor_data",gender);
+
+                Boolean insert = MyDb.insertDonorData(fname,lname,email,phone,addr,gender,clothTyp,clothSiz);
+                if(insert){
+                    Toast.makeText(DonorActivity.this, "Cloths Successfully donated", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(DonorActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(DonorActivity.this, "Failed", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+    }
+
+}
+

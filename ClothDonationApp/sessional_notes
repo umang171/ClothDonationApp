@@ -1,0 +1,69 @@
+
+Activity life cycle 
+--------------------
+https://www.youtube.com/watch?v=jUmqYE2iWiI&ab_channel=CodeWithHarry
+onCreate()
+onStart()
+onResume()<-----|
+onPause()  --------|
+onStop()---> onRestart()
+onDestroy
+
+
+Fragment Life cycle:
+-------------------------
+https://www.youtube.com/watch?v=PPh4RM1SUmI&t=99s&ab_channel=TechnicalSushil
+
+
+
+Android software stack 
+---------------------------
+part 1 :
+https://www.youtube.com/watch?v=a-O9u3X7c-M&ab_channel=MySirG.com
+part 2:
+https://www.youtube.com/watch?v=98VmKYYC78Y&ab_channel=MySirG.com
+
+
+
+Android application archtechture
+AV NC RI
+------------
+Activity manager and fragment manager
+Views
+Notifications
+Content provider
+Resource manager
+Intent
+
+components of android application
+------------------------------------------
+ Activities
+ Services
+ Content Providers
+ Intents
+ Broadcast Receiversz
+ Widgets
+ Notifications
+
+Android development tools
+-----------------------------------
+	Adroid sdk manager  and virtual device
+	Android emulator
+	Dalvik debug monitering service (DDMS)
+	Android debug Bridge
+	Logcat 
+	Android asset packing tool (AAPT)
+	
+	
+	
+Layout view Groups
+	1.Constraint Layout
+	2.Linear Layout
+	3.Relative Layout
+	4.Absolute Layout
+	5.Frame Layout
+	https://www.youtube.com/watch?v=76a8KG8CzdM&t=498s&ab_channel=GeekyHub
+	
+	
+Intents :
+	https://www.youtube.com/watch?v=4AG-h-zoY4g&ab_channel=EngineersDream

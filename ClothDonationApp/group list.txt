@@ -1,0 +1,41 @@
+
+
+special case :
+
+amisha, pratiksha  -- scan and convert to pdf
+dhwanin
+maulik
+kulin
+dharmil
+aditya 
+prishita
+----------------------------------------------------
+
+shubham --- e-commerce watch selling.
+
+riddhi and anushka ---- movie and something 
+
+
+kuldip ,yash -- chat application
+
+
+kamal,sijo ---  hospital management
+
+kamlesh , sunny -- e-commerce
+
+kishan , tejas -- attandance system
+
+devendra, yash --- fitnes app
+
+shivam , parth --- resume builder
+
+
+hardik , bhargav --- ebook class
+
+
+sagar, akshit --- money spender expense calculator
+
+manthan , paras ----- chat system using firebase.
+
+umang,brijesh ---- cloth donation
+
